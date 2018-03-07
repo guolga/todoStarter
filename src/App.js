@@ -35,7 +35,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <h2>Simple Todolist</h2>
-        </div><br/>
+        </div><br />
         <div>
           <form>
             Description:<br />
@@ -50,14 +50,19 @@ class App extends Component {
           </form>
         </div>
         <div>
-          <Table selectable={false}>
-            <TableHeader
-              displaySelectAll={false}><TableHeaderColumn>Date</TableHeaderColumn>
-              <TableHeaderColumn>Description</TableHeaderColumn>
+          <Table selectable={true} multiSelectable={true} >
+            <TableHeader>
+              <TableRow>
+                <TableHeaderColumn>Date</TableHeaderColumn>
+                <TableHeaderColumn>Description</TableHeaderColumn>
+              </TableRow>
             </TableHeader>
-            <TableBody displayRowCheckbox={false}>
+            <TableBody>
               {this.state.todos.map((item, index) =>
-                <TableRow key={index}><TableRowColumn>{item.date}</TableRowColumn><TableRowColumn>{item.description}</TableRowColumn></TableRow>)}
+                <TableRow key={index}>
+                  <TableRowColumn>{item.date}</TableRowColumn>
+                  <TableRowColumn>{item.description}</TableRowColumn>
+                </TableRow>)}
             </TableBody>
           </Table>
         </div>
